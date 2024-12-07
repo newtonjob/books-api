@@ -40,4 +40,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Book::class);
     }
+
+    /**
+     * Determine if the user is an admin.
+     */
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
 }

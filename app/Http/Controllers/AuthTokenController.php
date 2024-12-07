@@ -14,7 +14,7 @@ class AuthTokenController extends Controller
             throw ValidationException::withMessages(['email' => __('auth.failed')]);
         }
 
-        response()->json([
+        return response()->json([
             'user' => $user = Auth::getLastAttempted(),
             'token' => $user->createToken('Personal')->plainTextToken,
         ]);
